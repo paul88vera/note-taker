@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static Middleware
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 // "GET" request for API Route
 app.get('/api/notes', (req,res) => {
@@ -41,15 +41,15 @@ app.post('/api/notes', (req,res) => {
 });
 
 // TODO: Add "DELETE" request
-app.delete('/api/notes/:id', (req,res) => {
- readFileAsync('./db.db.json', 'utf-8').then(function(data){
-  const notes = [].concat(JSON.parse(data));
- })
-});
+// app.delete('/api/notes/:id', (req,res) => {
+//  readFileAsync('/db.db.json', 'utf-8').then(function(data){
+//   const notes = [].concat(JSON.parse(data));
+//  })
+// });
 
 // HTML ROUTES //
 // displays notes.html
-app.get("/api/notes", function(req, res) {
+app.get("/notes", function(req, res) {
 res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
