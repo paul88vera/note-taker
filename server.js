@@ -40,12 +40,12 @@ app.post('/api/notes', (req,res) => {
  })
 });
 
-//TODO: Add "DELETE" request
-// app.delete('/api/notes/:id', (req,res) => {
-//  readFileAsync('./db.db.json', 'utf-8').then(function(data){
-//   const notes = [].concat(JSON.parse(data));
-//  })
-// });
+// TODO: Add "DELETE" request
+app.delete('/api/notes/:id', (req,res) => {
+ readFileAsync('./db.db.json', 'utf-8').then(function(data){
+  const notes = [].concat(JSON.parse(data));
+ })
+});
 
 // HTML ROUTES //
 // displays notes.html
@@ -55,7 +55,8 @@ res.sendFile(path.join(__dirname, "../public/notes.html"));
 
 // displays index.html
 app.get("/", function(req, res) {
- res.sendFile(path.join(__dirname, "../public/index.html"));
+ console.log(res.sendFile(path.join(__dirname, "../public/index.html")));
+
 });
 
 // displays index.html with anything after /api/notes/
