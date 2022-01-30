@@ -2,6 +2,7 @@ const express = require("express");
 const path = require('path');
 const util = require('util');
 const fs = require('fs');
+const {v4: uuidv4} = require("uuid");
 
 // Handling processes : Async & Util was found online and was easier for me to understand, and less typing
 const readFileAsync = util.promisify(fs.readFile);
@@ -30,7 +31,7 @@ app.post('/api/notes', (req,res) => {
  let newNote = req.body;
  readFileAsync('./db/db.json', 'utf-8').then(function(data) {
   const notes = [].concat(JSON.parse(data));
-  newNote.id = notes.length + 1;
+  newNote.id = uuidv4();
   notes.push(newNote);
   return notes;
  }).then(function(notes) {
