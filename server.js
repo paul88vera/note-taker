@@ -49,7 +49,7 @@ app.post('/api/notes', (req,res) => {
 
 // HTML ROUTES //
 // displays notes.html
-app.get("/notes", function(req, res) {
+app.get("/api/notes", function(req, res) {
 res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
