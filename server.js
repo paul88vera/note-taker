@@ -19,49 +19,49 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // "GET" request for API Route
-app.get('/api/notes', (req,res) => {
- readFileAsync('./db/db.json', 'utf-8').then(function(data) {
+app.get('api/notes', (req,res) => {
+ readFileAsync('./db/db.json', 'utf-8').then((data) => {
   notes = [].concat(JSON.parse(data))
   res.json(notes);
  })
 });
 
 // "POST" request for API Route
-app.post('/api/notes', (req,res) => {
+app.post('api/notes', (req,res) => {
  let newNote = req.body;
- readFileAsync('./db/db.json', 'utf-8').then(function(data) {
+ readFileAsync('./db/db.json', 'utf-8').then((data) => {
   const notes = [].concat(JSON.parse(data));
   newNote.id = [notes.length + 1].concat(uuidv4());
   notes.push(newNote);
   return notes;
- }).then(function(notes) {
+ }).then((notes) => {
   writeFileAsync('./db/db.json', JSON.stringify(notes))
   res.json(newNote);
  })
 });
 
-// TODO: Add "DELETE" request
-// app.delete('/api/notes/:id', (req,res) => {
-//  readFileAsync('/db.db.json', 'utf-8').then(function(data){
-//   const notes = [].concat(JSON.parse(data));
-//  })
-// });
+// // TODO: Add "DELETE" request
+// // app.delete('/api/notes/:id', (req,res) => {
+// //  readFileAsync('/db.db.json', 'utf-8').then(function(data){
+// //   const notes = [].concat(JSON.parse(data));
+// //  })
+// // });
 
 // HTML ROUTES //
 // displays notes.html
-app.get("/notes", function(req, res) {
-res.sendFile(path.join(__dirname, "../public/notes.html"));
+app.get("/notes", (req, res) => {
+res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 // displays index.html
-app.get("/", function(req, res) {
- console.log(res.sendFile(path.join(__dirname, "../public/index.html")));
+app.get("/", (req, res) => {
+ res.sendFile(path.join(__dirname, "./public/index.html"));
 
 });
 
 // displays index.html with anything after /api/notes/
-app.get("*", function(req, res) {
- res.sendFile(path.join(__dirname, "../public/index.html"));
+app.get("*", (req, res) => {
+ res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 //listen
