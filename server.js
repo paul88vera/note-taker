@@ -52,17 +52,17 @@ app.post("/api/notes", (req, res) => {
 // HTML ROUTES //
 // displays notes.html
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/notes"));
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 // displays index.html
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 // displays index.html with anything after /api/notes/
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index"));
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 //listen
