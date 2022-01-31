@@ -1,7 +1,7 @@
 
   # Note-Taker
-  ![Screenshot](public\assets\images\note-taker.png)
-  ![Screenshot](public\assets\images\note-taker2.png)
+  ![Screenshot](https://github.com/paul88vera/note-taker/blob/main/public/assets/images/note-taker.png)
+  ![Screenshot](https://github.com/paul88vera/note-taker/blob/main/public/assets/images/note-taker2.png)
 
   ## Description
   Note-Taker is a ready-to-use and quick way to take notes online application.
