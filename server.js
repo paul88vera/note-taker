@@ -42,12 +42,18 @@ app.post("/api/notes", (req, res) => {
     });
 });
 
-// // TODO: Add "DELETE" request
-// // app.delete('/api/notes/:id', (req,res) => {
-// //  readFileAsync('/db.db.json', 'utf-8').then(function(data){
-// //   const notes = [].concat(JSON.parse(data));
-// //  })
-// // });
+// "DELETE" doesn't refresh but deletes from the array. Manual page refresh needed until issue is fixed.
+app.delete("/api/notes/:id", (req, res) => {
+  readFileAsync("./db/db.json", "utf-8").then(function (data) {
+    const notes = [].concat(JSON.parse(data));
+    notes.splice(req.params.id, 1);
+    console.log(`Deleted note '${req.params.id}'`);
+    writeFileAsync("./db/db.json", JSON.stringify(notes, "\t"), (err) => {
+      if (err) throw err;
+      return true;
+    })
+  })
+});
 
 // HTML ROUTES //
 // displays notes.html
