@@ -1,6 +1,7 @@
 
   # Note-Taker
- 
+  ![Screenshot](public\assets\images\note-taker.png)
+  ![Screenshot](public\assets\images\note-taker2.png)
 
   ## Description
   Note-Taker is a ready-to-use and quick way to take notes online application.
@@ -23,7 +24,7 @@
   License under [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) license
 
   ## Contributing
-  Creating the API Routes and setting up the server using Heroku  was my area in this project. 
+  Creating the API Routes and setting up the server using Heroku was my area in this project. 
 
   ## Tests
   Open the link provided and start using Note-Taker
